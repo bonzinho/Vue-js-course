@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vuejs - Styles</title>
+    <style>
+        .active{background-color: green;}
+        .notActive{background: red;}
+        .default{color:yellow;}
+    </style>
+</head>
+<body>
+
+        <div id="app">
+
+            <button @click="isActive = !isActive">alterar</button>
+
+            <hr>
+
+           <div :class="{active : isActive}">
+               Exemplo de Style
+           </div>
+
+           <hr>
+
+           <div :class="isActive ? 'active' : 'notActive'">
+               Exemplo de style 2
+           </div>
+
+           <hr>
+
+           <div class="default" :class="isActive ? 'active' : 'notActive'">
+                Exemplo de style 3
+            </div>
+
+            <hr>
+
+            <div :class="['default', isActive ? 'active' : 'notActive']">
+                    Exemplo de style 3.2
+            </div>
+
+            <hr>
+
+            <div :class="classObject">
+                    Exemplo de style 4
+            </div>
+
+            <hr>
+
+            <div :style="{display: ['-webkit-flex', '-moz-flex', 'flex']}">
+                    Exemplo de style 5
+            </div>
+
+        </div>
+    
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script>
+            new Vue({
+                el: '#app',
+                data: {
+                    isActive: true,
+                    classObject: {
+                        active: false,
+                        'text-red': true,
+                        'color-white': true,
+                    }
+                }
+
+            })
+        </script>
+</body>
+</html>

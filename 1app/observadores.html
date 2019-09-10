@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vuejs - Observadores</title>
+</head>
+<body>
+
+        <div id="app">
+           <button @click="count++">+</button>
+            {{count}}
+           <button @click="count--">-</button>
+
+           <hr>
+
+           <input type="text" v-model="count"> {{count}}
+        </div>
+    
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script>
+            new Vue({
+                el: '#app',
+
+                data: {
+                    count: 0,
+                },
+
+                watch:{
+                    count: function(value) {                        
+                        let vm = this;
+                        setTimeout(() => {
+                            vm.count = 0;
+                        }, 3000)
+                    }                    
+                },                
+            })
+        </script>
+</body>
+</html>

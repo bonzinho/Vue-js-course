@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Renderização condicional</title>
+</head>
+<body>
+        <div id="app">
+            
+            <div v-if="number < 12">
+                O numero é menor que 12
+            </div>
+            <div v-else-if="number == 12">
+                O numero é igual a 12
+            </div>
+            <div v-else="number > 12">
+                O numero é maior que 12
+            </div>
+
+            <hr>
+            
+            <div v-if="isActive">
+                    Ativo
+            </div>
+            <div v-else>
+                    Inativo
+            </div>
+        </div>
+        
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script>
+            new Vue({
+                el: '#app',
+                data: {
+                    textExemple: 'Condição numero 1',
+                    textExemple2: 'Condição numero 2',
+                    number: 13,
+                    isActive: false,
+                },                    
+            });
+        </script>
+</body>
+</html>

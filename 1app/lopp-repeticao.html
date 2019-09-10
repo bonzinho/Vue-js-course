@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>VueJs - Loop de repetição</title>
+    <style>
+        .active{
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="i in 10">{{i}}</li>
+        </ul>
+        <hr>
+        <ul>
+            <li v-for="item in items">{{item}}</li>
+        </ul>
+        <hr>
+        <ul>
+            <li v-for="(task, index) in tasks" :class="{active: task.isActive}">
+                indice: {{index}} <br>
+                id: {{task.id}} <br>
+                name: {{task.name}}
+            </li>
+        </ul>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {                
+                items: ['item 1', 'item 2', 'item 3', 'item 4'],
+                tasks: [
+                    {id: 1, name: "tarefa numero 1", isActive: true},
+                    {id: 2, name: "tarefa numero 2", isActive: false},
+                    {id: 3, name: "tarefa numero 3", isActive: false},
+                    {id: 4, name: "tarefa numero 4", isActive: false},
+                ],
+            },
+        });
+    </script>
+</body>
+</html>

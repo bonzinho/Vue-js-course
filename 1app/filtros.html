@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>VueJs - Filtros</title>    
+    <style>
+        .active{
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <h1>Lista de tarefas</h1>
+        <ul>
+            <li v-for="task in tasks" :class="{active: task.completed}">
+                {{task.id}} - {{task.name | upperCase}} - {{task.name | lowerCase}} 
+            </li>
+        </ul>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+
+        Vue.filter('lowerCase', function(value){
+            return value.toLowerCase();
+        });
+        
+        new Vue({
+            el: '#app',
+            data: {
+                tasks: [
+                    {id: 1, name: "Tarefa numero 1", completed: true},
+                    {id: 2, name: "Tarefa numero 2", completed: false},
+                    {id: 3, name: "Tarefa numero 3", completed: true},
+                    {id: 4, name: "Tarefa numero 4", completed: false},
+                ],                
+            },
+
+            filters:{
+                upperCase(val){                        
+                    return val.toUpperCase();
+                },                    
+            },
+        });
+
+    </script>
+</body>
+</html>

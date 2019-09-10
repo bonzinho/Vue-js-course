@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>VueJs - Modificador de eventos</title>
+</head>
+<body>
+
+    <div id="app">
+        <a :href="urlLink" @click.prevent="showAlert">{{textLink}}</a>
+
+        <hr>
+
+        <form action="#" method="POST" @submit.prevent="showAlert">
+            <input type="text" placeholder="Nome">
+            <button type="submit">Enviar</button>
+            <hr>            
+        </form>
+        <button @click.once="showAlert">Clique me!</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+
+        new Vue({
+            el: '#app',
+
+            data: {                
+                textLink: "Isto é um link",
+                urlLink: "https://fe.up.pt",
+            },
+
+            methods: {
+               showAlert(event){
+                   //event.preventDefault();
+                   alert('Cliquei');
+               }
+            }
+        });
+
+    </script>    
+</body>
+</html>

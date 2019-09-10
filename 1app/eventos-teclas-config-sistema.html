@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>VueJs - Teclas de configuraçã de sistema</title>
+</head>
+<body>
+    <div id="app">
+        <div @click.ctrl.exact="testeEvent">
+            Clique Aqui apenas com o ctrl!!;
+        </div>
+        <div @click.ctrl="testeEvent">
+            Clique aqui com o ctrl pode clicar com outras teclas ao mesmo tempo
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {                
+                
+            },
+            methods: {
+                testeEvent(){
+                    alert('teste');
+                }
+            }
+        });
+    </script>    
+</body>
+</html>

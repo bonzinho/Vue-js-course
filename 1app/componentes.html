@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>VueJs - Componentes</title>
+</head>
+<body>
+
+    <div id="app">
+        <my-component></my-component>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+
+        Vue.component('my-component', {
+            template: `<div>
+                        <p>My component</p> 
+                        <child-component></child-component>
+                    </div>`
+        });
+
+        Vue.component('child-component', {
+            template: `<div>
+                        <p>My child component</p>
+                        <three-child-component></three-child-component>
+                    </div>`
+        });
+
+        Vue.component('three-child-component', {
+            template: '<p>My 3 child component</p>'
+        });
+
+        new Vue({
+            el: '#app',
+            data: {
+
+            }
+        });
+    </script>
+    
+</body>
+</html>
